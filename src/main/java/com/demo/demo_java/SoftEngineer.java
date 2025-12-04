@@ -1,6 +1,11 @@
 package com.demo.demo_java;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class SoftEngineer {
+    @Id
     private Integer id;
     private String Name;
     private String techStack;
