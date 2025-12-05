@@ -11,17 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/software-engineers")
 public class sofwareEngineerController {
 
+        private final demo_java.softwareEngineerService softwareEngineerService;
+
         @GetMapping
         public List<SoftEngineer> getEngineers() {
 
-                return List.of(
-                                new SoftEngineer(
-                                                1,
-                                                "James",
-                                                "Js, Node, React, CSS"),
-                                new SoftEngineer(
-                                                2,
-                                                "Dames",
-                                                "VJs, NodeJs, React, CSS"));
+                return softwareEngineerService.getSoftEngineer();
         }
 }
