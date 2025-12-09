@@ -1,18 +1,28 @@
 package com.demo.demo_java;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class SoftEngineer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String Name;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "tech_stack")
     private String techStack;
+
+    public SoftEngineer() {
+    }
 
     public SoftEngineer(Integer id, String name, String techStack) {
         this.id = id;
-        this.Name = name;
+        this.name = name;
         this.techStack = techStack;
     }
 
@@ -25,11 +35,11 @@ public class SoftEngineer {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getTechStack() {
@@ -45,7 +55,7 @@ public class SoftEngineer {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((Name == null) ? 0 : Name.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((techStack == null) ? 0 : techStack.hashCode());
         return result;
     }
@@ -64,10 +74,10 @@ public class SoftEngineer {
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (Name == null) {
-            if (other.Name != null)
+        if (name == null) {
+            if (other.name != null)
                 return false;
-        } else if (!Name.equals(other.Name))
+        } else if (!name.equals(other.name))
             return false;
         if (techStack == null) {
             if (other.techStack != null)
