@@ -20,4 +20,7 @@ public class SoftwareEngineerService {
         softEngineerRepo.save(softEngineer);
     }
 
-}
+    public SoftEngineer getAllSoftEngineerId(Integer id) {
+        return softEngineerRepo.findById(id)
+        .orElseThrow( () -> new IllegalStateExceptional(id + "Not found"))
+      }
